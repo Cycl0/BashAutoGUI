@@ -1,0 +1,25 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/lucas/mytemp/pixels/BashAutoGUI/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	/p5.9.20220424.0/
+BashAutoGUI	README.md	/^# BashAutoGUI$/;"	c
+check_pixel_color	BashAutoGUI.sh	/^function check_pixel_color() {$/;"	f
+click	BashAutoGUI.sh	/^function click() {$/;"	f
+click_if_color	BashAutoGUI.sh	/^function click_if_color() {$/;"	f
+default_sleep	BashAutoGUI.sh	/^function default_sleep() {$/;"	f
+get_pixel_color	BashAutoGUI.sh	/^function get_pixel_color() {$/;"	f
+hold_mouse	BashAutoGUI.sh	/^function hold_mouse() {$/;"	f
+hold_mouse_until_color_at	BashAutoGUI.sh	/^function hold_mouse_until_color_at() {$/;"	f
+keypress	BashAutoGUI.sh	/^function keypress() {$/;"	f
+keypress_until_color	BashAutoGUI.sh	/^function keypress_until_color() {$/;"	f
+random_milliseconds	BashAutoGUI.sh	/^function random_milliseconds() {$/;"	f
+random_milliseconds_sleep	BashAutoGUI.sh	/^function random_milliseconds_sleep() {$/;"	f
+wait_until_color_at	BashAutoGUI.sh	/^function wait_until_color_at() {$/;"	f
+wait_until_not_color_at	BashAutoGUI.sh	/^function wait_until_not_color_at() {$/;"	f

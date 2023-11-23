@@ -1,13 +1,35 @@
 #!/bin/bash
 
+function get_pixel_color() {
+    scrot -o screenshot.png
+    color=$(convert screenshot.png -crop 1x1+$1+$2 -format '%[pixel:p{0,0}]' info:-)
+    echo "$color"
+}
+
 function check_pixel_color() {
 
     color=$(get_pixel_color "$2" "$3")
-    same_color=false
     if [ "$color" = "$1" ]; then
-        same_color=true
+            echo "Color: $1 - found at ($2, $3)"
+        return 0
     fi
-    echo "$same_color"
+    echo "Color: $1 - not found at ($2, $3)"
+    return 1
+}
+
+function check_multiple_pixels_colors() {
+    local args=("$@")
+    local len=${#args[@]}
+    local result=true
+
+    for ((i=0; i<len; i+=3)); do
+        if ! check_pixel_color "${args[i]}" "${args[i+1]}" "${args[i+2]}"; then
+          return 1
+        fi
+    done
+    echo "All colors found"
+    return 0
+
 }
 
 function click() {
@@ -31,12 +53,6 @@ function click_if_color() {
 
 function default_sleep() {
     random_milliseconds_sleep 300 700
-}
-
-function get_pixel_color() {
-    scrot -o screenshot.png
-    color=$(convert screenshot.png -crop 1x1+$1+$2 -format '%[pixel:p{0,0}]' info:-)
-    echo "$color"
 }
 
 function hold_mouse() {
@@ -79,20 +95,19 @@ function keypress_until_color() {
     echo "$4 finished pressing until color: $1 at ($2, $3)"
 }
 
-# color, x, y, key, timeout
-
+function random() {
+    echo $(("$1" + RANDOM%(("$2" - "$1"))))
+}
 
 function random_milliseconds() {
     delay=$(awk "BEGIN {print $(random "$1" "$2") / 1000 }")
     echo "$delay"
 }
 
-random_milliseconds "$1" "$2"
 
 function random_milliseconds_sleep() {
     sleep $(random_milliseconds "$1" "$2")
 }
-
 
 
 function wait_until_color_at() {
